@@ -6,6 +6,6 @@ admin.site.register(Reserva)
 
 @admin.register(Equipamento)
 class EquipamentoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'laboratorio', 'quantidade', 'status')
+    list_display = ('nome', 'laboratorio', 'status')
     list_filter = ('laboratorio', 'status')
     search_fields = ('nome', 'laboratorio__nome')

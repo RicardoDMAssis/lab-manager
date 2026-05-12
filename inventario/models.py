@@ -20,7 +20,6 @@ class Equipamento(models.Model):
 
     nome = models.CharField(max_length=100)
     laboratorio = models.ForeignKey(Laboratorio, on_delete=models.CASCADE, related_name='equipamentos')
-    quantidade = models.IntegerField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='disponivel')
 
     def __str__(self):
