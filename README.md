@@ -8,7 +8,7 @@ O LabManager é uma API REST desenvolvida para o controle de equipamentos e rese
 * **Django 5.x**
 * **Django REST Framework**
 * **PostgreSQL**
-* **Docker e Docker Compose**
+* **Docker**
 
 ## Arquitetura do Sistema
 
