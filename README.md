@@ -39,21 +39,21 @@ O projeto utiliza o padrão de arquitetura do Django REST Framework para separar
 
 1. Clone o repositório:
 ```bash
-git clone git@github.com:RicardoDMAssis/lab-manager.git
+git clone https://github.com/RicardoDMAssis/lab-manager/tree/main
 cd lab-manager
 ```
 
 2. Suba os containers em modo detach:
 ```bash
-sudo docker compose up -d
+docker compose up -d
 ```
 3. Execute as migrações para preparar o banco de dados:
 ```bash
-sudo docker compose exec web python manage.py migrate
+docker compose exec web python manage.py migrate
 ```
 4. Crie um superusuario para acessar o painel de admin:
 ```bash
-sudo docker compose exec web python manage.py createsuperuser
+docker compose exec web python manage.py createsuperuser
 ```
 A API estará disponível em http://localhost:8000/api/`
 
