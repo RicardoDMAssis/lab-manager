@@ -41,3 +41,30 @@ O projeto utiliza o padrão de arquitetura do Django REST Framework para separar
 ```bash
 git clone git@github.com:RicardoDMAssis/lab-manager.git
 cd lab-manager
+```
+
+2. Suba os containers em modo detach:
+```bash
+sudo docker compose up -d
+```
+3. Execute as migrações para preparar o banco de dados:
+```bash
+sudo docker compose exec web python manage.py migrate
+```
+4. Crie um superusuario para acessar o painel de admin:
+```bash
+sudo docker compose exec web python manage.py createsuperuser
+```
+A API estará disponível em http://localhost:8000/api/`
+
+## Principais Rotas
+
+| Método | Endpoint | Descrição |
+| ------------- |:-------------:|:-------------|
+| GET | /api/equipamentos | Lista equipamentos |
+| POST | /api/equipamentos/criar/ | Cadastra um novo equipamento |
+| PUT | /api/equipamentos/atualizar/{id}/ | Atualiza dados de um equipamento |
+| DELETE | /api/equipamentos/deletar/{id}/ | Remove um equipamento do inventário |
+| GET | /api/reservas/ | Lista todas as reservas |
+| POST | /api/reservas/criar/| Realiza a reserva de um item disponível |
+| DELETE | /api/reservas/deletar/{id}/ | Finaliza a reserva e libera o item |
