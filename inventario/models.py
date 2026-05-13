@@ -7,7 +7,7 @@ class Laboratorio(models.Model):
     localizacao = models.CharField(max_length=100)
     capacidade = models.IntegerField()
 
-    def __str__(self):
+    def __str__(self):  
         return self.nome
     
 class Equipamento(models.Model):
@@ -27,11 +27,9 @@ class Equipamento(models.Model):
     
 class Reserva(models.Model):
     usuario = models.CharField(max_length=100)
-    laboratorio = models.ForeignKey(Laboratorio, on_delete=models.SET_NULL, null=True, blank=True, related_name='reservas')
-    equipamento = models.ManyToManyField(Equipamento, blank=True)
+    equipamento = models.ForeignKey(Equipamento, on_delete=models.CASCADE, related_name='reservas')
     data_reserva = models.DateTimeField(auto_now_add=True)
-    data_devolucao = models.DateTimeField(null=True, blank=True)
-    finalidade = models.TextField()
+    data_devolucao = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return f"Reserva de {self.usuario} - {self.data_reserva.strftime('%Y-%m-%d %H:%M:%S')}"
